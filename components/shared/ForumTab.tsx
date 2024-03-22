@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { HiOutlineChatAlt, HiOutlineEye, HiOutlineHeart, HiOutlineShare } from 'react-icons/hi';
+
 interface Props {
   avatarURL: string;
   title:string;
@@ -11,7 +13,7 @@ interface Props {
 function ForumTab({avatarURL,title,label,content}:Props) {
   return (
     <div className="flex mb-2 py-4 px-2 shadow-md">
-      <div className="p-2 min-w-16">
+      <div className="p-2 min-w-20">
         <Image
           src={avatarURL}
           alt="avatar"
@@ -33,49 +35,25 @@ function ForumTab({avatarURL,title,label,content}:Props) {
           <p className="text-[14px] text-gray-800">{content}</p>
         </div>
 
-        <div className="flex mt-2 gap-3">
+        <div className="flex mt-2 gap-5">
           <Link href="/" className="flex gap-1 items-center">
-            <Image
-              className="cursor-pointer object-contain"
-              src="/assets/heart.svg"
-              alt="heart"
-              width={18}
-              height={18}
-            />
-            <span className="text-sm">700k</span>
+            <HiOutlineHeart className="w-5 h-5" />
+            <span className="text-sm">70k</span>
           </Link>
 
           <Link href="/" className="flex gap-1 items-center">
-            <Image
-              className="cursor-pointer object-contain"
-              src="/assets/eye.svg"
-              alt="heart"
-              width={18}
-              height={18}
-            />
-            <span className="text-sm">700k</span>
+            <HiOutlineEye className="w-5 h-5" />
+            <span className="text-sm">90k</span>
           </Link>
 
           <Link href="/" className="flex gap-1 items-center">
-            <Image
-              className="cursor-pointer object-contain"
-              src="/assets/chat.svg"
-              alt="heart"
-              width={18}
-              height={18}
-            />
-            <span className="text-sm">700k</span>
+            <HiOutlineChatAlt className="w-5 h-5" />
+            <span className="text-sm">1k</span>
           </Link>
 
           <Link href="/" className="flex gap-1 items-center">
-            <Image
-              className="cursor-pointer object-contain"
-              src="/assets/share.svg"
-              alt="heart"
-              width={18}
-              height={18}
-            />
-            <span className="text-sm">700k</span>
+            <HiOutlineShare className="w-5 h-5" />
+            <span className="text-sm">1.2k</span>
           </Link>
         </div>
       </div>

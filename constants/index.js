@@ -1,3 +1,5 @@
+import { HiCurrencyDollar, HiMiniChatBubbleBottomCenterText } from "react-icons/hi2";
+
 export const discussionList = [{
     avatar:'/assets/john.svg',
     title:'Jonathan Doe',
@@ -30,11 +32,11 @@ export const cardList = [{
 }]
 
 export const sidebarLinks = [{
-    icon:'/assets/comment.svg',
+    icon:<HiMiniChatBubbleBottomCenterText className="w-5 h-5" />,
     text:'Discussion Forum',
     url:'/'
 },{
-    icon:'/assets/dollar.svg',
+    icon:<HiCurrencyDollar className="w-5 h-5" />,
     text:'Market Stories',
     url:'/'
 },{

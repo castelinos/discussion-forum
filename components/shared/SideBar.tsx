@@ -4,6 +4,7 @@ import { sidebarLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { HiBell, HiMiniUserCircle } from "react-icons/hi2";
 
 function SideBar() {
   const [expanded, setExpanded] = useState(false);
@@ -15,35 +16,17 @@ function SideBar() {
       }`}
     >
       <div className="flex py-4 gap-2 items-center justify-start">
-        <Image
-          src="assets/avatar-default.svg"
-          alt="avatar"
-          width={32}
-          height={32}
-          className="bg-blue-900 rounded-full object-contain"
-        />
+        <HiMiniUserCircle className="w-10 h-10" />
         <div>Hello, User</div>
-        <Image
-          src="assets/bell.svg"
-          alt="avatar"
-          width={32}
-          height={32}
-          className="rounded-full object-fit ml-6"
-        />
+        <HiBell className="w-6 h-6 ml-4" />
       </div>
 
       <div className="flex flex-col px-1">
         {sidebarLinks.map((item, index) => {
           return (
-            <div key={index} className="flex gap-2 my-2">
+            <div key={index} className="flex gap-2 my-2 items-center">
               {item?.icon ? (
-                <Image
-                  src={item.icon}
-                  alt="avatar"
-                  width={16}
-                  height={16}
-                  className="rounded-full object-fit"
-                />
+                item.icon
               ) : (
                 <span className="w-4 h-4"></span>
               )}
@@ -60,7 +43,7 @@ function SideBar() {
           setExpanded((prev) => !prev);
         }}
       >
-        { expanded ? "<" : ">"}
+        {expanded ? "<" : ">"}
       </button>
     </div>
   );
