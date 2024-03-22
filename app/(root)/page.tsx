@@ -1,11 +1,11 @@
 "use client";
 import ForumTab from "@/components/shared/ForumTab";
 import StoryCard from "@/components/shared/StoryCard";
-import { cardList, discussionList } from "@/constants/index.js";
+import { cardList, discussionList, tab } from "@/constants/index.js";
 import { useState } from "react";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(tab['discussion-forum']);
 
   function setTab(index: number) {
     console.log(index);
@@ -17,9 +17,9 @@ export default function Home() {
       {/* Toggle button for uptil md devices */}
       <div className="absolute z-[1] grid grid-cols-2 w-full sm:hidden text-white h-12">
         <div
-          onClick={() => setTab(0)}
+          onClick={() => setTab(tab["discussion-forum"])}
           className={`${
-            0 === activeTab
+            tab["discussion-forum"] === activeTab
               ? "bg-blue-600 border-b-4 border-red-500"
               : "bg-blue-900"
           } flex items-center justify-center cursor-pointer`}
@@ -27,9 +27,9 @@ export default function Home() {
           Discussion forum
         </div>
         <div
-          onClick={() => setTab(1)}
+          onClick={() => setTab(tab["market-stories"])}
           className={`${
-            1 === activeTab
+            tab["market-stories"] === activeTab
               ? "bg-blue-600 border-b-4 border-red-500"
               : "bg-blue-900"
           } flex items-center justify-center cursor-pointer`}
@@ -39,7 +39,11 @@ export default function Home() {
       </div>
 
       {/* Discussion forum */}
-      <div className={0 === activeTab ? "grow" : "hidden sm:block"}>
+      <div
+        className={
+          tab["discussion-forum"] === activeTab ? "grow" : "hidden sm:block"
+        }
+      >
         <div className="bg-gray-200 text-red-500 font-semibold text-[22px] uppercase p-2.5 hidden sm:inline-block mt-2 mx-2">
           Discussions forum
         </div>
@@ -59,8 +63,12 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Market discussion */}
-      <div className={1 === activeTab ? "grow" : "hidden sm:block"}>
+      {/* Market Stories */}
+      <div
+        className={
+          tab["market-stories"] === activeTab ? "grow" : "hidden sm:block"
+        }
+      >
         <div className="bg-gray-200 text-red-500 font-semibold text-[18px] uppercase p-2.5 hidden sm:inline-block mt-2 mx-2">
           Marketing discussion
         </div>

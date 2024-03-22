@@ -58,3 +58,8 @@ export const sidebarLinks = [{
     text:'News/Interview',
     url:'/'
 }];
+
+export const tab = {
+    'discussion-forum':0,
+    'market-stories':1,
+}
